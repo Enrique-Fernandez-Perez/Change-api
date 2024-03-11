@@ -1,10 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TokenService } from './shared/token.service';
+import { AuthStateService } from './shared/auth-state.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'frontend';
+export class AppComponent implements OnInit {
+  title:string = '';
+
+  isSignedIn!: boolean;
+  constructor(
+    private auth: AuthStateService,
+    public router: Router,
+    public token: TokenService
+  ) { }
+
+  ngOnInit() {
+    if(this.token.getToken()){
+      this.auth.setAuthState(true);
+      this.token.removeToken();
+      this.router.navigate(['petiociones']);
+    }
+
+    this.auth.userAuthState.subscribe((val) => {
+      this.isSignedIn = val;
+    });
+  }
+  // Signout
+  signOut() {
+    this.auth.setAuthState(false);
+    this.token.removeToken();
+    this.router.navigate(['login']);
+  }
+
 }
