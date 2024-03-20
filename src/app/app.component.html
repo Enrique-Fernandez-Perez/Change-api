@@ -29,63 +29,26 @@
                 <a class="nav-link fs-4 m-2"  routerLink="/peticiones/mine">Mis peticiones</a>
               </li>
               
-              <li class="nav-item" *ngIf="isSignedIn">
+              <!-- <li class="nav-item" *ngIf="isSignedIn">
                 <a class="nav-link fs-4 m-2" routerLink="/peticiones/peticionesfirmadas">Mis firmas</a>
-              </li>
+              </li> -->
           </ul>
       </div>
-<!--       
-      <a class="p-2 text-dark" routerLink="/profile" *ngIf="isSignedIn">User Profile</a>
-      <a class="p-2 text-dark" *ngIf="!isSignedIn" routerLink="/login">Log in</a> -->
-
-      <!-- <div >
-        <!-- <ul class="navbar-nav ml-auto" *ngIf="isSignedIn"> -- >
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
-                -
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-                    <div class="dropdown-header text-center">
-                        <p class="mb-1 mt-3 font-weight-semibold">
-                          <!-- <?=Auth::user()->name?> -- >
-                          1
-                        </p>
-                        <p class="font-weight-light text-muted mb-0">
-                          2<!-- <?=Auth::user()->email?> -- >
-                        </p>
-                    </div>
-                    <!-- <a class="dropdown-item" >My Profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
-                    <a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout').submit();" >Sign Out<i class="dropdown-item-icon ti-dashboard"></i></a>
-                    <form id="logout" method="POST" style="display: none;">
-                    </form> -- >
-                </div>
-            </li>
-        </ul> -->
-  <!-- </div> -->
 
         <a class="nav-link fs-5 m-2 link-danger" routerLink="/register" *ngIf="!isSignedIn">Register</a>
         <a class="nav-link fs-5 m-2 link-danger" routerLink="/login" *ngIf="!isSignedIn">Login</a>
         <a  class="nav-link fs-5 m-2 link-danger" routerLink="/profile" *ngIf="isSignedIn">User Profile</a>
         <a class="nav-link fs-5 m-2 link-danger" (click)="signOut()" *ngIf="isSignedIn">Log out</a>
         
-  <!-- 
-        <label><?=Auth::user()->role_id?></label>
-  
-        <?php }else{  ?> -->
-  
-  
-       <!-- <a class="nav-link fs-5 m-2 link-danger" href="{{route('register')}}">Register</a>
-        <a class="nav-link fs-5 m-2 link-danger" href="{{route('login')}}">Login</a> -->
-  
-        <!-- <?php } ?> -->
       </div>
 
 </nav>
 
-<div class="row">
-  <router-outlet></router-outlet>
-</div>
 
-<!-- <footer class="text-center text-lg-start bg-light text-muted">
+<router-outlet></router-outlet>
+
+
+<footer class="text-center text-lg-start bg-light text-muted">
   
   <section
       class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
@@ -200,4 +163,4 @@
       <a class="text-reset fw-bold" href="https://change.org/">Change.org</a>
   </div>
 
-</footer> -->
+</footer>

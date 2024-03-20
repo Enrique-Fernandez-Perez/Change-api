@@ -1,0 +1,50 @@
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col">
+            <h1>Editar Peticion {{peticion.id}}</h1>
+
+            <form [formGroup]="form" method="post" (submit)="submit()" enctype="multipart/form-data" class="row g-3">
+                <div class="col-md-8">
+                    <div class="col-md-8">
+                        <label for="validationServer01" class="form-label">Titulo</label>
+                        <input type="text" formControlName="titulo" name="titulo" class="form-control  @error('titulo') is-invalid @enderror" id="validationServer01" >
+                    </div>
+                    <div class="col-md-8">
+                        <label for="validationServer01" class="form-label">Descripción</label>
+                        <textarea  formControlName="descripcion" name="descripcion" class="form-control @error('descripcion') is-invalid @enderror" id="validationServer01" > </textarea>
+                    </div>
+                    <div class="col-md-8">
+                        <label for="validationServer01" class="form-label">Destinatario</label>
+                        <textarea  formControlName="destinatario" name="destinatario" class="form-control @error('destinatario') is-invalid @enderror" id="validationServer01" required> </textarea>
+                    </div>
+                    <input type="number" placeholder="categoria" formControlName="categoria_id" name="" id="">
+                    <!-- <div class="form-group">
+                        <label for="exampleInputName1">Categoría</label>
+
+                        <label class="uiLabel-left form-element__label uiLabel" for="304:343;a"><span
+                                class="" data-aura-rendered-by="625:0">Seleciona una categoria para tu
+                                            petición</span>
+                            <span class="required " title="obligatorio"
+                                  data-aura-rendered-by="305:343;a">*</span>
+                        </label> -->
+                        <!-- <select name="categoria" class="form-control" *ngFor="let categorias as categoria">
+                            <option value="categorias.id"> {{categorias.nombre}}</option>
+                        </select> -->
+
+                    <!-- </div> -->
+                    <!-- <div class="col-12">
+                        <label class="uiLabel-left form-element__label uiLabel"
+                               for="304:343;a"><span class="">Sube una imagen</span>
+                            <span class="required " title="obligatorio">*</span>
+                        </label><input name="file" type="file" class="btn phxxl @error('file') is-invalid @enderror " aria-describedby=""
+                                       placeholder="" aria-required="true">
+                    </div> -->
+                    <div class="col-12">
+                        <input (click)="submit()" value="Enviar petición nueva" type="submit"
+                               class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+
+
+        </div>  </div>  </div>

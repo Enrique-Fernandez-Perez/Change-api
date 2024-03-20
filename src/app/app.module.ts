@@ -30,14 +30,15 @@ import { PostModule } from './post/post.module';
     ReactiveFormsModule,
     FormsModule,
     PeticionModule,
-    PostModule
+    PostModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }],
+    },
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

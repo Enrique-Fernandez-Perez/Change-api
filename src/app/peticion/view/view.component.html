@@ -1,0 +1,65 @@
+<style>
+    h1{
+        font-size: 6rem;
+        padding: 1rem;
+        color: red;
+    }
+
+    h2, h3, h4, h5, h6{
+        font-size: 2rem;
+        padding: 1rem;
+    }
+    #firmar{
+        font-family: Arial !important;
+        font-size: 4rem !important;
+        padding: 1rem !important;
+    }
+    #vistaPeticion *{
+        font-family: Arial !important;
+        text-align: center !important;
+        position: relative !important;
+        justify-self: center !important;
+        font-weight: bold !important;
+
+        margin-right: auto;
+        margin-left: auto;
+
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+
+        padding: 1rem !important;
+    }
+    #vistaPeticion img{
+        width: 20rem !important;
+        height: 20rem !important;
+    }
+</style>
+
+<div id="vistaPeticion">
+    <div id="imagen">
+        <span>
+            <img src="https://pm1.aminoapps.com/7119/b0abdf491cffde4bdf95850956c1b15a5591a4b5r1-712-707v2_uhq.jpg">
+        </span>
+    </div>
+
+
+    <h1 >{{ peticion.titulo}}</h1>
+
+
+    <h2>Estado: <br>  {{ peticion.estado}}</h2>
+
+
+
+    <h3>Descripcion: <br>{{peticion.descripcion}}</h3>
+
+
+
+    <h4>Numero de Firmas:  <br> {{peticion.firmantes}}</h4>
+
+
+
+    <h4>Destinatario:  <br>{{peticion.destinatario}}</h4>
+    <h6>
+        <!-- <a id="firmar" (click)="firmar(peticion?.id ? 0 : 0)" type="button" class="btn btn-danger center-block" >Firmar peticion</a> -->
+    </h6>
+</div>

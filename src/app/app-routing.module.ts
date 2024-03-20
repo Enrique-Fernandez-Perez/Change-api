@@ -5,12 +5,14 @@ import { SignupComponent } from './components/signup/signup.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 const routes: Routes = [
-{ path: '', redirectTo: '/peticiones', pathMatch: 'full' },
+{ path: '', redirectTo: 'peticiones', pathMatch: 'full' },
+{ path: 'home', component: SigninComponent },
 { path: 'login', component: SigninComponent },
 { path: 'register', component: SignupComponent },
 { path: 'profile', component: UserProfileComponent },
 { path: 'peticiones', loadChildren: ()=>import('./peticion/peticion.module').then(m => m.PeticionModule) },
-// { path: '**', redirectTo: '/home', pathMatch: 'full' },
+{ path: '**', redirectTo: 'home', pathMatch: 'full' },
+// { path: '**', redirectTo: 'peticiones', pathMatch: 'full' },
 ];
 @NgModule({
 imports: [RouterModule.forRoot(routes)],
