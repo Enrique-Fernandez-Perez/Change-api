@@ -1,0 +1,33 @@
+<p>stateless works!</p>
+
+<!-- <img class="card-img-top h-25 w-25" src="{{product.picture}}" alt="{{product.title}}"> -->
+<img class="card-img-top" src="{{product.picture}}" alt="{{product.title}}">
+  <div class="card-body">
+  <h5 class="card-title">{{product.title}}</h5>
+  <p class="card-text">{{product.desc}}</p>
+  <p class="card-text">Precio: {{product.price}}€</p>
+  <!-- <a href="#" class="btn btn-primary" (click)="clickItem(product)">Comprar</a> -->
+  <!-- <a href="#" class="btn btn-primary">Comprar</a> -->
+  <button type="button" class="btn btn-primary" [disabled]="isDisable()" (click)="bought()">{{compra}}</button>
+  </div>
+
+<!-- <main role="main" class="container">
+    <div class="starter-template">
+    <h1>Stateful</h1>
+    <p class="lead">Ejemplo de componete stateful.</p>
+    <div class="card-deck">
+    <!-- <div class="card justify-content-center align-items-center align-middle h-50 w-50" *ngFor="let camiseta of shopModel.shopItems"> -- >
+    <div class="card justify-content-center align-items-center align-middle" *ngFor="let camiseta of shopModel.shopItems">
+    <!-- <div class="card" *ngFor="let camiseta of shopModel.shopItems"> -- >
+    <img class="card-img-top h-25 w-25" src="{{camiseta.picture}}" alt="{{camiseta.title}}">
+    <!-- <img class="card-img-top" src="{{camiseta.picture}}" alt="{{camiseta.title}}"> -- >
+    <div class="card-body">
+    <h5 class="card-title">{{camiseta.title}}</h5>
+    <p class="card-text">{{camiseta.desc}}</p>
+    <p class="card-text">Precio: {{camiseta.price}}€</p>
+    <a href="#" class="btn btn-primary" (click)="clickItem(camiseta)">Comprar</a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </main> -->

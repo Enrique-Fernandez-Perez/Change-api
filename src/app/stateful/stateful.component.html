@@ -1,0 +1,97 @@
+<!-- <p>stateful works!</p> -->
+<!-- <app-stateless></app-stateless> -->
+
+<main role="main" class="container-fluid">
+  <div class="starter-template">
+  <h1>Stateful</h1>
+  <p class="lead">Ejemplo de componete stateful.</p>
+  <div class="card-deck row">
+  <!-- <div class="card justify-content-center align-items-center align-middle h-50 w-50" *ngFor="let camiseta of shopModel.shopItems"> -->
+  <!-- <div class="card justify-content-center align-items-center align-middle" *ngFor="let camiseta of shopModel.shopItems"> -->
+  <div class="card col-sm-3" *ngFor="let camiseta of shopModel.shopItems">
+    <app-stateless [product]="camiseta" (camisetaComprada)="camisetaComprada($event)"></app-stateless>
+</div>
+<diV class="col-sm-3 p-2">
+  <ul class="list-group">
+    <li *ngFor="let boughtItem of boughtItems">{{boughtItem.title}}: <span class="bg-primary text-white">{{boughtItem.price}} €</span></li>
+  </ul>
+  <br>  
+  <label>Total: {{total}} €</label>
+</diV>
+</div>
+</div>
+
+  </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <main role="main" class="container">
+  <div class="starter-template">
+  <h1>Stateful</h1>
+  <p class="lead">Ejemplo de componete stateful.</p>
+  <div class="card-deck"> 
+  <div class="card" *ngFor="let camiseta of shopModel.shopItems">
+    <img class="card-img-top" src="{{camiseta.picture}}"
+    alt="{{camiseta.title}}">
+    <div class="card-body">
+    <h5 class="card-title">{{camiseta.title}}</h5>
+    <p class="card-text">{{camiseta.desc}}</p>
+    <p class="card-text">Precio:
+    {{camiseta.price}}€</p>
+    <a href="#" class="btn btnprimary" (click)="clickItem(camiseta)">Comprar</a>
+  </div>
+  </div>
+  </div>
+  </div>
+  </main> -->
+
+<!-- <main role="main" class="container">
+    <div class="starter-template">
+    <h1>Stateful</h1>
+    <p class="lead">Ejemplo de componete stateful.</p>
+    <div class="card-deck"> -->
+    <!-- <div class="card justify-content-center align-items-center align-middle h-50 w-50" *ngFor="let camiseta of shopModel.shopItems"> -->
+    <!-- <div class="card justify-content-center align-items-center align-middle" *ngFor="let camiseta of shopModel.shopItems"> -->
+    <!-- <div class="card" *ngFor="let camiseta of shopModel.shopItems"> -->
+    <!-- <img class="card-img-top h-25 w-25" src="{{camiseta.picture}}" alt="{{camiseta.title}}"> -->
+    <!-- <img class="card-img-top" src="{{camiseta.picture}}" alt="{{camiseta.title}}">
+    <div class="card-body">
+    <h5 class="card-title">{{camiseta.title}}</h5>
+    <p class="card-text">{{camiseta.desc}}</p>
+    <p class="card-text">Precio: {{camiseta.price}}€</p>
+    <a href="#" class="btn btn-primary" (click)="clickItem(camiseta)">Comprar</a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </main> -->
+<!-- <main role="main" class="container">
+     
+      <div class="starter-template">
+      <h1>Stateful</h1>
+      <p class="lead">Ejemplo de componete stateful.</p>
+     
+      <ul class="list-group">
+      <li class="list-group-item" *ngFor="let camiseta of shopModel.shopItems">{{camiseta.title}}</li>
+     
+      </ul>
+      </div>
+    </main> -->
+      <!-- /.container -->
