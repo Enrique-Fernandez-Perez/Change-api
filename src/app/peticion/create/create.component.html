@@ -3,7 +3,8 @@
         <div class="col">
             <h1>Crear Peticion</h1>
 
-            <form [formGroup]="form" method="post" action="route('admin.peticiones.store')" enctype="multipart/form-data" class="row g-3">
+            <!-- <form [formGroup]="form" method="post" action="route('admin.peticiones.store')" enctype="multipart/form-data" class="row g-3"> -->
+            <form [formGroup]="form" method="post" (ngSubmit)="submit(form)" enctype="multipart/form-data" class="row g-3">
                 <div class="col-md-8">
                     <div class="col-md-8">
                         <label for="validationServer01" class="form-label">Titulo</label>
@@ -18,6 +19,16 @@
                         <textarea  formControlName="destinatario" name="destinatario" class="form-control @error('destinatario') is-invalid @enderror" id="validationServer01" required> </textarea>
                     </div>
                     <input type="number" placeholder="categoria" formControlName="categoria_id" name="" id="">
+                    
+                    <div class="form-group">
+                        <label for="file">File:</label>
+                        <input type="file"
+                        id="file"
+                        class="form-control"
+                        formControlName="file"
+                        >
+                    </div>
+
                     <!-- <div class="form-group">
                         <label for="exampleInputName1">Categoría</label>
 
@@ -40,7 +51,7 @@
                                        placeholder="" aria-required="true">
                     </div> -->
                     <div class="col-12">
-                        <input value="Enviar petición nueva" (click)="submit()" type="submit"
+                        <input [disabled]="!form.valid" value="Enviar petición nueva" type="submit"
                                class="btn btn-primary">
                     </div>
                 </div>

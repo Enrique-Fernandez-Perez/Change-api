@@ -15,13 +15,15 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 
 import { AuthInterceptor } from './shared/auth-interceptor.service';
 import { PostModule } from './post/post.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     SignupComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

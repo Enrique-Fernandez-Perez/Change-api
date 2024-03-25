@@ -5,11 +5,12 @@ import { IndexComponent } from './index/index.component';
 import { ViewComponent } from './view/view.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
+import { FirmasComponent } from './firmas/firmas.component';
   
 const routes: Routes = [
   { path: 'create', component: CreateComponent },
   { path: 'mine', component: IndexComponent },
-  { path: 'peticionesfirmadas', component: ViewComponent }, 
+  { path: 'peticionesfirmadas', component: FirmasComponent }, 
   { path: 'edit/:Id', component: EditComponent ,},
   { path: ':Id', component: ViewComponent },
   { path: '', component: IndexComponent },

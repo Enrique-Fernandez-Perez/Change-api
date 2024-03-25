@@ -32,13 +32,13 @@
                         </select> -->
 
                     <!-- </div> -->
-                    <!-- <div class="col-12">
+                    <div class="col-12">
                         <label class="uiLabel-left form-element__label uiLabel"
-                               for="304:343;a"><span class="">Sube una imagen</span>
+                               for="304:343;a"><span class="">Cambiar imagen</span>
                             <span class="required " title="obligatorio">*</span>
-                        </label><input name="file" type="file" class="btn phxxl @error('file') is-invalid @enderror " aria-describedby=""
+                        </label><input formControlName="image" name="file" type="file" class="btn phxxl @error('file') is-invalid @enderror " aria-describedby=""
                                        placeholder="" aria-required="true">
-                    </div> -->
+                    </div>
                     <div class="col-12">
                         <input (click)="submit()" value="Enviar petición nueva" type="submit"
                                class="btn btn-primary">

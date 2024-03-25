@@ -1,0 +1,66 @@
+<h2>Peticiones Firmadas</h2>
+
+    <!--  En $peticiones me devuelve el PeticioneController metodo index-->
+    <style>
+        #viewFlex table, #viewFlex th, #viewFlex td {
+            font-family: Arial;
+            font-size: 1rem;
+            text-align: center;
+            position: relative;
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 0.5rem;
+            justify-self: center;
+        }
+
+        #viewFlex table{
+            margin: 1rem;
+        }
+        #viewFlex{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            /* display: flex; */
+            padding-top: 2rem;
+        }
+        #centrar{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            /* justify-content: flex-center; */
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        #viewFlex *{
+            padding-left: 2rem;
+            margin-bottom: auto;
+            margin-top: auto;
+
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        #viewFlex img{
+            width: 18rem !important;
+            height: 16rem !important;
+        }
+    </style>
+    <div id="centrar">
+    <div id="viewFlex" *ngFor="let peticion of peticiones">
+        <span><img src="https://pm1.aminoapps.com/7119/b0abdf491cffde4bdf95850956c1b15a5591a4b5r1-712-707v2_uhq.jpg"></span>
+        <span>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Titulo</th>
+            </tr>
+            <tr>
+                <td>{{peticion.id}}</td>
+                <td>{{peticion.titulo}}</td>
+            </tr>
+        </table>
+            <a  routerLink="{{peticion.id}}" class="btn btn-danger">Ver detalles</a>
+            <br>
+            <br>
+            <a routerLink="edit/{{peticion.id}}"  class="btn btn-danger">Editar Peticion</a>
+        </span>
+
+    </div>
+    </div>

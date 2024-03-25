@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
    
 import {  Observable, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Categoria, Peticion } from './peticion';
 import { User } from '../shared/auth.service';
 import { TokenService } from '../shared/token.service';
@@ -12,7 +12,8 @@ import { TokenService } from '../shared/token.service';
 })
 export class PeticionService {
    
-  private apiURL = "http://127.0.0.1:8000/api/peticiones/";
+  // private apiURL = "http://127.0.0.1:8000/api/peticiones/";
+  private apiURL = "http://127.0.0.1:8000/api";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -22,16 +23,23 @@ export class PeticionService {
   
   constructor(private httpClient : HttpClient) { }
    
+  getFirmadas(): Observable<Peticion[]> {
+    return this.httpClient.get<Peticion[]>(this.apiURL + '/peticiones/firmadas')
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
   getAll(): Observable<Peticion[]> {
 
-    return this.httpClient.get<Peticion[]>(this.apiURL)
+    return this.httpClient.get<Peticion[]>(this.apiURL + '/peticiones/')
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
   getAllUser(): Observable<Peticion[]> {
-    return this.httpClient.get<Peticion[]>(this.apiURL)
+    return this.httpClient.get<Peticion[]>(this.apiURL + '/mispeticiones/')
     .pipe(
       catchError(this.errorHandler)
     )
@@ -44,29 +52,43 @@ export class PeticionService {
   //   )
   // }
    
-  create(peticion : Peticion): Observable<Peticion> {
-    return this.httpClient.post<Peticion>(this.apiURL, JSON.stringify(peticion), this.httpOptions)
+  // create(peticion : Peticion): Observable<Peticion> {
+  //   return this.httpClient.post<Peticion>(this.apiURL + '/peticiones/', JSON.stringify(peticion), this.httpOptions)
+  //   .pipe(
+  //     catchError(this.errorHandler)
+  //   )
+  // } 
+   
+  create(peticion : FormData): Observable<Peticion> {
+    const headers = new HttpHeaders();
+
+    headers.append('Content-Type','multipart/form-data');
+    headers.append('Accept','aplication/json');
+
+    console.log(headers);
+
+    return this.httpClient.post<Peticion>(this.apiURL + '/peticiones/', peticion, {headers:headers})
     .pipe(
       catchError(this.errorHandler)
     )
   }  
    
   find(id : Number): Observable<Peticion> {
-    return this.httpClient.get<Peticion>(this.apiURL + id)
+    return this.httpClient.get<Peticion>(this.apiURL + '/peticiones/' + id)
     .pipe(
       catchError(this.errorHandler)
     )
   }
    
   update(id : Number, peticion : Peticion): Observable<Peticion> {
-    return this.httpClient.put<Peticion>(this.apiURL + id, JSON.stringify(peticion), this.httpOptions)
+    return this.httpClient.put<Peticion>(this.apiURL + '/peticiones/' + id, JSON.stringify(peticion), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
    
   delete(id : Number){
-    return this.httpClient.delete<Peticion>(this.apiURL + id, this.httpOptions)
+    return this.httpClient.delete<Peticion>(this.apiURL + '/peticiones/' + id, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
@@ -74,7 +96,7 @@ export class PeticionService {
 
   // Route::put('peticiones/firmar/{id}', 'firmar');    
   firmar(id : Number){
-    return this.httpClient.put<Peticion>(this.apiURL + 'firmar/' + id, this.httpOptions)
+    return this.httpClient.put<Peticion>(this.apiURL + '/peticiones/firmar/' + id, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
