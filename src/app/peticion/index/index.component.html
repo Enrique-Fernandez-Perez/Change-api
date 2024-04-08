@@ -43,17 +43,29 @@
         }
     </style>
     <div id="centrar">
-    <div id="viewFlex" *ngFor="let peticion of peticiones">
-        <span><img src="https://pm1.aminoapps.com/7119/b0abdf491cffde4bdf95850956c1b15a5591a4b5r1-712-707v2_uhq.jpg"></span>
+        <!-- {{getImagen('20')}} -->
+        <!-- <img src="{{getImagen('20')}}"> -->
+    <div id="viewFlex" *ngFor="let peticion of peticiones; let i = index">
+        <span>
+            <!-- <img src="{{peticion.files[0].name}}"> -->
+            <!-- <img src='{{peticion.files[0].name}}'> -->
+            <!-- <img src='file:///C:/Users/daw1xx/PhpstormProjects/laravel_api_Enri/public/storage/33_murci1.jpg'> -->
+            <!-- <img [src]="peticion.files"/> -->
+            <img src="http://127.0.0.1:8000/api/imagen/{{peticion.files[0].id}}"> 
+            <!-- getImagen(peticion.files[0].id) -->
+        </span>
         <span>
         <table>
             <tr>
                 <th>ID</th>
-                <th>Titulo</th>
+                <th>Titulo</th>     
+                <!-- <th>File</th> -->
             </tr>
             <tr>
                 <td>{{peticion.id}}</td>
                 <td>{{peticion.titulo}}</td>
+                <!-- <td>{{peticion.files[0].id | json}}</td> -->
+                <!-- <td>{{getImagen('20')}}</td> -->
             </tr>
         </table>
             <a  routerLink="{{peticion.id}}" class="btn btn-danger">Ver detalles</a>

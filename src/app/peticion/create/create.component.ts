@@ -69,10 +69,10 @@ export class CreateComponent implements OnInit {
     formData.append('categoria_id',form.value.categoria_id);
     formData.append('file', this.selectedImage);
     
-    console.log(formData);
+    // console.log(formData);
 
     this.peticionService.create(formData).subscribe((res:any) => {
-      this.router.navigateByUrl('');
+      this.router.navigateByUrl('peticiones');
     })
 
     // this.peticionService.create(this.form.value).subscribe((res:any) => {
@@ -82,7 +82,7 @@ export class CreateComponent implements OnInit {
   
   onSelectFile(event : any){
     if(event.target.files.length > 0){
-      const file = event.target.file[0];
+      const file = event.target.files[0];
       this.selectedImage = file;
     }
   }

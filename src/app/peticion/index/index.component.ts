@@ -14,13 +14,13 @@ export class IndexComponent implements OnInit {
       
   peticiones : Peticion[] = [];
   mine : boolean = false;
-    
+
   /*------------------------------------------
   --------------------------------------------
   Created constructor
   --------------------------------------------
   --------------------------------------------*/
-  constructor(private peticonService: PeticionService,
+  constructor(private peticionService: PeticionService,
     private route: ActivatedRoute,
     private router: Router) { }
   
@@ -33,22 +33,25 @@ export class IndexComponent implements OnInit {
 
     this.mine = (this.route.snapshot.routeConfig?.path?.toString() == 'mine') ? true : false;
  
-    if(this.mine){
-      this.peticonService.getAllUser().subscribe( listPeticiones => {this.peticiones = listPeticiones;  });
-    }
-    else{
-      this.peticonService.getAll().subscribe( listPeticiones => {this.peticiones = listPeticiones;  });
-    }
-
-  }
+    // if(this.mine){
+    //   this.peticonService.getAllUser().subscribe( listPeticiones => {
+    //     this.peticiones = listPeticiones;
+    //   });
+    // }
+    // else{
+    //   this.peticonService.getAll().subscribe( listPeticiones => {this.peticiones = listPeticiones;  });
+    // }
+    this.peticionService.getAll().subscribe( listPeticiones => {this.peticiones = listPeticiones;  });
     
+  }
+
   /**
    * Write code on Method
    *
    * @return response()
    */
   deletePeticion(id:Number){
-    this.peticonService.delete(id).subscribe(res => {
+    this.peticionService.delete(id).subscribe(res => {
          this.peticiones = this.peticiones.filter(item => item.id !== id);
     })
   }

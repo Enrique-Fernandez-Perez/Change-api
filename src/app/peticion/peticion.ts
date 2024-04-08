@@ -7,7 +7,7 @@ export interface Peticion {
     estado : ['aceptada', 'pendiente'];
     user_id : number;
     categoria_id : number;
-    file:any;
+    files:any;
 }
 
 export interface Categoria {
