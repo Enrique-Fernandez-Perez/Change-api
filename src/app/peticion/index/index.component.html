@@ -42,11 +42,12 @@
             height: 16rem !important;
         }
     </style>
-    <div id="centrar">cls
+    <div id="centrar">
     <div id="viewFlex" *ngFor="let peticion of peticiones; let i = index">
         <span>
-            <img src="http://127.0.0.1:8000/api/imagen/{{peticion.files[0].id}}"> 
+            <img src="http://127.0.0.1:8000/api/imagen/{{peticion.id}}"> 
         </span>
+        
         <span>
         <table>
             <tr>
