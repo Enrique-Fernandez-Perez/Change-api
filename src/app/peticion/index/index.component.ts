@@ -3,7 +3,7 @@ import { Peticion } from '../peticion';
 import { PeticionService } from '../peticion.service';
 import { ActivatedRoute, Router } from '@angular/router';
 // import { AuthStateService } from 'src/app/shared/auth-state.service';
-import { Observable, map } from 'rxjs';
+// import { Observable, map } from 'rxjs';
 import { AuthService, UserLogin } from 'src/app/shared/auth.service';
       
 @Component({
@@ -31,7 +31,8 @@ export class IndexComponent implements OnInit {
     private router: Router,
     // private authStatus : AuthStateService,
     private authService : AuthService,
-    ) { }
+    ) { 
+    }
 
   getLog(peticion : Peticion) {
     // this.authStatus.userAuthState.subscribe(data => this.log = data);
@@ -65,11 +66,12 @@ export class IndexComponent implements OnInit {
     if(this.mine){
       this.peticionService.getAllUser().subscribe( listPeticiones => {
         this.peticiones = listPeticiones;
+        listPeticiones.forEach(peticion => { this.img.push('http://127.0.0.1:8000/' +  peticion.files[0].file_path);});        
       });
+      return;
     }
-    else{
-      this.peticionService.getAll().subscribe( listPeticiones => {this.peticiones = listPeticiones; listPeticiones.forEach(peticion => { this.img.push('http://127.0.0.1:8000/' +  peticion.files[0].file_path);})  });
-    }
+
+    this.peticionService.getAll().subscribe( listPeticiones => {this.peticiones = listPeticiones; listPeticiones.forEach(peticion => { this.img.push('http://127.0.0.1:8000/' +  peticion.files[0].file_path);})  });
 
     // this.peticiones.forEach(peticion => { this.img.push('http://127.0.0.1:8000/{{peticion.files[0].file_path}}'); console.log(peticion); })
     // this.peticionService.getAll().subscribe( listPeticiones => {this.peticiones = listPeticiones;  });
