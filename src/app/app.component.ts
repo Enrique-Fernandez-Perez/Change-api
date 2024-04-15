@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   title:string = '';
 
   isSignedIn!: boolean;
+  
   constructor(
     private auth: AuthStateService,
     public router: Router,

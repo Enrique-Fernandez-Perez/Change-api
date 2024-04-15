@@ -4,7 +4,7 @@ import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http'
 import {  Observable, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Categoria, Peticion } from './peticion';
-import { User } from '../shared/auth.service';
+import { AuthService, User } from '../shared/auth.service';
 import { TokenService } from '../shared/token.service';
      
 @Injectable({
@@ -14,15 +14,16 @@ export class PeticionService {
    
   // private apiURL = "http://127.0.0.1:8000/api/peticiones/";
   private apiURL = "http://127.0.0.1:8000/api";
-
+  
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   }
   
-  constructor(private httpClient : HttpClient) { }
-   
+  constructor(private httpClient : HttpClient, private authService : AuthService) { 
+  }
+
   getFirmadas(): Observable<Peticion[]> {
     return this.httpClient.get<Peticion[]>(this.apiURL + '/peticiones/firmadas')
     .pipe(

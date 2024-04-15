@@ -31,7 +31,7 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    PeticionModule,
+    // PeticionModule,
     PostModule,
   ],
   providers: [

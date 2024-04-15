@@ -28,8 +28,7 @@ export class FirmasComponent implements OnInit {
    *
    * @return response()
    */
-  ngOnInit(): void {
- 
+  ngOnInit(): void { 
     this.peticonService.getFirmadas().subscribe( listPeticiones => {this.peticiones = listPeticiones;  });
   }
 }

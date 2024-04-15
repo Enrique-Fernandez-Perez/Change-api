@@ -10,7 +10,7 @@ import { PeticionService } from '../peticion.service';
 })
 export class ViewComponent implements OnInit {
      
-  id!: number;
+  id !: number;
   peticion!: Peticion;
     
   /*------------------------------------------

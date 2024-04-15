@@ -25,7 +25,9 @@ export class EditComponent implements OnInit {
     public peticionService: PeticionService,
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {
+   
+   }
     
   /**
    * Write code on Method
@@ -39,10 +41,10 @@ export class EditComponent implements OnInit {
     }); 
       
     this.form = new FormGroup({
-      titulo: new FormControl('', [Validators.required]),
-      descripcion: new FormControl('', Validators.required),
-      destinatario: new FormControl('', [Validators.required]),
-      categoria_id: new FormControl('', Validators.required),
+      titulo: new FormControl(this.peticion.descripcion, [Validators.required]),
+      descripcion: new FormControl(this.peticion.descripcion, Validators.required),
+      destinatario: new FormControl(this.peticion.destinatario, [Validators.required]),
+      categoria_id: new FormControl(this.peticion.categoria_id, Validators.required),
     });
   }
     

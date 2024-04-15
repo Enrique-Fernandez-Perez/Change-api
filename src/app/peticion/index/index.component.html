@@ -51,21 +51,21 @@
         <span>
         <table>
             <tr>
-                <th>ID</th>
+                <!-- <th>ID</th> -->
                 <th>Titulo</th>     
             </tr>
             <tr>
-                <td>{{peticion.id}}</td>
+                <!-- <td>{{peticion.id}}</td> -->
                 <td>{{peticion.titulo}}</td>
             </tr>
         </table>
             <a  routerLink="{{peticion.id}}" class="btn btn-danger">Ver detalles</a>
             <br>
             <br>
-            <a routerLink="edit/{{peticion.id}}"  class="btn btn-danger">Editar Peticion</a>
+            <a *ngIf="getLog(peticion)" routerLink="edit/{{peticion.id}}"  class="btn btn-danger">Editar Peticion</a>
             <br>
             <br>
-            <button (click)="deletePeticion(peticion?.id || 0)" class="btn btn-danger" type="submit">Eliminar Peticion</button>
+            <button *ngIf="getLog(peticion)" (click)="deletePeticion(peticion?.id || 0)" class="btn btn-danger" type="submit">Eliminar Peticion</button>
         </span>
 
     </div>

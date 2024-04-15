@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { PeticionService } from '../peticion.service';
+import { AuthStateService } from 'src/app/shared/auth-state.service';
 // import { Peticion, Categoria } from '../peticion';
      
 @Component({
@@ -16,6 +17,8 @@ export class CreateComponent implements OnInit {
   imageSrc : string ='';
   selectedImage!: any;
   categorias : any = [];
+
+  log ?: any;
   
   // categorias ?: Categoria[];
   /*------------------------------------------
@@ -25,9 +28,10 @@ export class CreateComponent implements OnInit {
   --------------------------------------------*/
   constructor(
     public peticionService: PeticionService,
-    private router: Router
+    private router: Router,
+    private authStatus : AuthStateService,
   ) { }
-    
+
   /**
    * Write code on Method
    *
@@ -41,7 +45,15 @@ export class CreateComponent implements OnInit {
       categoria_id: new FormControl('', Validators.required),
       file: new FormControl('', Validators.required),
     });
+    
+    this.getLog();
+    if(!this.log){
+      this.router.navigateByUrl('login');
+    }
+  }
 
+  getLog() {
+    this.authStatus.userAuthState.subscribe(data => this.log = data);
   }
     
   /**
