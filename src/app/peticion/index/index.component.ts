@@ -19,6 +19,8 @@ export class IndexComponent implements OnInit {
   // log ?: any;
   user ?: UserLogin|any;
 
+  img : string[] = [];
+
   /*------------------------------------------
   --------------------------------------------
   Created constructor
@@ -66,9 +68,10 @@ export class IndexComponent implements OnInit {
       });
     }
     else{
-      this.peticionService.getAll().subscribe( listPeticiones => {this.peticiones = listPeticiones;  });
+      this.peticionService.getAll().subscribe( listPeticiones => {this.peticiones = listPeticiones; listPeticiones.forEach(peticion => { this.img.push('http://127.0.0.1:8000/' +  peticion.files[0].file_path);})  });
     }
 
+    // this.peticiones.forEach(peticion => { this.img.push('http://127.0.0.1:8000/{{peticion.files[0].file_path}}'); console.log(peticion); })
     // this.peticionService.getAll().subscribe( listPeticiones => {this.peticiones = listPeticiones;  });
     
   }

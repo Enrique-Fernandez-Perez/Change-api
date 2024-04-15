@@ -45,7 +45,8 @@
     <div id="centrar">
     <div id="viewFlex" *ngFor="let peticion of peticiones; let i = index">
         <span>
-            <img src="http://127.0.0.1:8000/api/imagen/{{peticion.id}}"> 
+            <img [src]="img[i]"> 
+            <!-- <img src="http://127.0.0.1:8000/api/imagen/{{peticion.id}}">  -->
             <!-- <img src="http://127.0.0.1:8000/{{peticion.files[0].file_path}}">  -->
         </span>
         
