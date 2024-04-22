@@ -23,7 +23,7 @@ import { HomeComponent } from './home/home.component';
     SigninComponent,
     SignupComponent,
     UserProfileComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

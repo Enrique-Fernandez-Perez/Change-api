@@ -13,6 +13,8 @@ export class FirmasComponent implements OnInit {
       
   peticiones : Peticion[] = [];
   mine : boolean = false;
+
+  img : string[] = [];
     
   /*------------------------------------------
   --------------------------------------------
@@ -29,6 +31,9 @@ export class FirmasComponent implements OnInit {
    * @return response()
    */
   ngOnInit(): void { 
-    this.peticonService.getFirmadas().subscribe( listPeticiones => {this.peticiones = listPeticiones;  });
+    this.peticonService.getFirmadas().subscribe( listPeticiones => {
+      this.peticiones = listPeticiones;
+      listPeticiones.forEach(peticion => { this.img.push('http://127.0.0.1:8000/' +  peticion.files[0].file_path);});
+    });
   }
 }

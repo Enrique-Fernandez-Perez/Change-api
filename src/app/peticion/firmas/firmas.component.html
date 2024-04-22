@@ -43,8 +43,8 @@
         }
     </style>
     <div id="centrar">
-    <div id="viewFlex" *ngFor="let peticion of peticiones">
-        <span><img src="https://pm1.aminoapps.com/7119/b0abdf491cffde4bdf95850956c1b15a5591a4b5r1-712-707v2_uhq.jpg"></span>
+    <div id="viewFlex" *ngFor="let peticion of peticiones; let i = index">
+        <span><img [src]="img[i]" /></span>
         <span>
         <table>
             <tr>

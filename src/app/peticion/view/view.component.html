@@ -9,7 +9,9 @@
         font-size: 2rem;
         padding: 1rem;
     }
-    #firmar{
+    #firmar,
+    #desfirmar
+    {
         font-family: Arial !important;
         font-size: 4rem !important;
         padding: 1rem !important;
@@ -37,13 +39,12 @@
 
 <div id="vistaPeticion">
     <div id="imagen">
+
         <span>
             <img src="http://127.0.0.1:8000/api/imagen/{{peticion.id}}">
+            <!-- <img [src]="img"> -->
         </span>
     </div>
-
-    {{peticion | json}}
-    
 
 
     <h1 >{{ peticion.titulo}}</h1>
@@ -64,5 +65,9 @@
     <h4>Destinatario:  <br>{{peticion.destinatario}}</h4>
     <h6>
         <a id="firmar" (click)="firmar(peticion.id)" type="button" class="btn btn-danger center-block" >Firmar peticion</a>
+    </h6>
+    
+    <h6>
+        <a id="desfirmar" (click)="desfirmar(peticion.id)" type="button" class="btn btn-danger center-block" >Desfirmar peticion</a>
     </h6>
 </div>

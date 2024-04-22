@@ -46,6 +46,8 @@ export class EditComponent implements OnInit {
       destinatario: new FormControl(this.peticion.destinatario, [Validators.required]),
       categoria_id: new FormControl(this.peticion.categoria_id, Validators.required),
     });
+
+    console.log(this.form.value['titulo']);
   }
     
   /**

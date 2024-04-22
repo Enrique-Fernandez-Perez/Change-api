@@ -11,8 +11,10 @@ import { AuthStateService } from '../../shared/auth-state.service';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
+  
   loginForm: FormGroup;
   errors:any = null;
+
   constructor(
     public router: Router,
     public fb: FormBuilder,

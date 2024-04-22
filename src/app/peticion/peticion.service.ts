@@ -89,8 +89,16 @@ export class PeticionService {
     )
   }
 
-  delete(id : Number){
-    return this.httpClient.delete<Peticion>(this.apiURL + '/peticiones/' + id, this.httpOptions)
+  delete(id : Number) : Observable<Peticion> {
+
+    const httpOption = {
+      headers: new HttpHeaders({
+        'Content-Type':'multipart/form-data',
+        'Accept':'application/json'
+      })
+    }
+
+    return this.httpClient.delete<Peticion>(this.apiURL + '/peticiones/' + id, httpOption)
     .pipe(
       catchError(this.errorHandler)
     )
@@ -99,6 +107,13 @@ export class PeticionService {
   // Route::put('peticiones/firmar/{id}', 'firmar');    
   firmar(id : Number){
     return this.httpClient.put<Peticion>(this.apiURL + '/peticiones/firmar/' + id, this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+  
+  desfirmar(id : Number){
+    return this.httpClient.put<Peticion>(this.apiURL + '/peticiones/desfirmar/' + id, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )

@@ -11,7 +11,9 @@ import { PeticionService } from '../peticion.service';
 export class ViewComponent implements OnInit {
      
   id !: number;
-  peticion!: Peticion;
+  peticion !: Peticion;
+
+  img : string = '';
     
   /*------------------------------------------
   --------------------------------------------
@@ -34,19 +36,22 @@ export class ViewComponent implements OnInit {
         
     this.peticionsService.find(this.id).subscribe((data: Peticion)=>{
       this.peticion = data;
+      this.img = data.files[0].file_path;
     });
   }
     
 
   firmar(id : Number){    
-    this.peticionsService.firmar(id).subscribe((data: Peticion)=>{
+    this.peticionsService.firmar(id).subscribe((data : Peticion)=>{
       this.peticion = data;
+      // this.img = data.files[0].file_path;
     });
   }
   
   desfirmar(id : Number){
-    this.peticionsService.find(this.id).subscribe((data: Peticion)=>{
+    this.peticionsService.desfirmar(id).subscribe((data: Peticion)=>{
       this.peticion = data;
+      // this.img = data.files[0].file_path;
     });
   }
 }

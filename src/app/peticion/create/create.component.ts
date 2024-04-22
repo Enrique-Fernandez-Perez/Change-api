@@ -84,7 +84,7 @@ export class CreateComponent implements OnInit {
     // console.log(formData);
 
     this.peticionService.create(formData).subscribe((res:any) => {
-      this.router.navigateByUrl('peticiones');
+      this.router.navigateByUrl('peticiones/mine');
     })
 
     // this.peticionService.create(this.form.value).subscribe((res:any) => {

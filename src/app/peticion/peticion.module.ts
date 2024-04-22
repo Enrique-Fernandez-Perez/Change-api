@@ -9,9 +9,10 @@ import { EditComponent } from './edit/edit.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FirmasComponent } from './firmas/firmas.component';
+import { MyIndexComponent } from './my-index/my-index.component';
   
 @NgModule({
-  declarations: [IndexComponent, ViewComponent, CreateComponent, EditComponent, FirmasComponent],
+  declarations: [IndexComponent, ViewComponent, CreateComponent, EditComponent, FirmasComponent, MyIndexComponent],
   imports: [
     CommonModule,
     PeticionRoutingModule,

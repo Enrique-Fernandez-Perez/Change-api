@@ -14,7 +14,6 @@ import { AuthService, UserLogin } from 'src/app/shared/auth.service';
 export class IndexComponent implements OnInit {
       
   peticiones : Peticion[] = [];
-  mine : boolean = false;
 
   // log ?: any;
   user ?: UserLogin|any;
@@ -27,9 +26,6 @@ export class IndexComponent implements OnInit {
   --------------------------------------------
   --------------------------------------------*/
   constructor(private peticionService: PeticionService,
-    private route: ActivatedRoute,
-    private router: Router,
-    // private authStatus : AuthStateService,
     private authService : AuthService,
     ) { 
     }
@@ -60,32 +56,23 @@ export class IndexComponent implements OnInit {
    * @return response()
    */
   ngOnInit(): void {
-
-    this.mine = (this.route.snapshot.routeConfig?.path?.toString() == 'mine') ? true : false;
- 
-    if(this.mine){
-      this.peticionService.getAllUser().subscribe( listPeticiones => {
-        this.peticiones = listPeticiones;
-        listPeticiones.forEach(peticion => { this.img.push('http://127.0.0.1:8000/' +  peticion.files[0].file_path);});        
-      });
-      return;
-    }
-
-    this.peticionService.getAll().subscribe( listPeticiones => {this.peticiones = listPeticiones; listPeticiones.forEach(peticion => { this.img.push('http://127.0.0.1:8000/' +  peticion.files[0].file_path);})  });
-
-    // this.peticiones.forEach(peticion => { this.img.push('http://127.0.0.1:8000/{{peticion.files[0].file_path}}'); console.log(peticion); })
-    // this.peticionService.getAll().subscribe( listPeticiones => {this.peticiones = listPeticiones;  });
-    
+    this.chargeAll();    
   }
-
+  
   /**
    * Write code on Method
    *
    * @return response()
    */
   deletePeticion(id:Number){
-    this.peticionService.delete(id).subscribe(res => {
-         this.peticiones = this.peticiones.filter(item => item.id !== id);
-    })
+    console.log(id);
+
+    this.peticionService.delete(id).subscribe(res => {console.log(res)});
+
+    this.chargeAll();
+  }
+
+  chargeAll(){
+    this.peticionService.getAll().subscribe( listPeticiones => {this.peticiones = listPeticiones; listPeticiones.forEach(peticion => { this.img.push('http://127.0.0.1:8000/' +  peticion.files[0].file_path);})  });
   }
 }
