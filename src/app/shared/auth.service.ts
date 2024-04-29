@@ -5,13 +5,6 @@ import { TokenService } from './token.service';
 
 // User interface
 export class User {
-  name!: String;
-  email!: String;
-  password!: String;
-  password_confirmation!: String;
-}
-
-export class UserLogin {
   id ?: number;
   name!: String;
   email!: String;

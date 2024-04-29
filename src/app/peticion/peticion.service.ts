@@ -41,10 +41,22 @@ export class PeticionService {
   }
 
   getAllUser(): Observable<Peticion[]> {
-    return this.httpClient.get<Peticion[]>(this.apiURL + '/mispeticiones/')
+    const headers = new HttpHeaders();
+
+    headers.append('Content-Type','multipart/form-data');
+    headers.append('Accept','application/json');
+
+    // console.log(headers);
+
+    return this.httpClient.get<Peticion[]>(this.apiURL + '/mispeticiones/', {headers:headers})
     .pipe(
       catchError(this.errorHandler)
     )
+
+    // return this.httpClient.get<Peticion[]>(this.apiURL + '/mispeticiones/', this.httpOptions)
+    // .pipe(
+    //   catchError(this.errorHandler)
+    // )
   }
 
   // getCategorias(): Observable<Categoria[]> {

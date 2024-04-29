@@ -43,6 +43,7 @@
         }
     </style>
     <div id="centrar">
+        <!-- {{ peticiones | json }} -->
     <div id="viewFlex" *ngFor="let peticion of peticiones; let i = index">
         <span><img [src]="img[i]" /></span>
         <span>
@@ -57,9 +58,9 @@
             </tr>
         </table>
             <a  routerLink="{{peticion.id}}" class="btn btn-danger">Ver detalles</a>
+            <!-- <br>
             <br>
-            <br>
-            <a routerLink="edit/{{peticion.id}}"  class="btn btn-danger">Editar Peticion</a>
+            <a routerLink="edit/{{peticion.id}}"  class="btn btn-danger">Editar Peticion</a> -->
         </span>
 
     </div>

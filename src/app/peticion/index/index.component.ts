@@ -4,7 +4,7 @@ import { PeticionService } from '../peticion.service';
 import { ActivatedRoute, Router } from '@angular/router';
 // import { AuthStateService } from 'src/app/shared/auth-state.service';
 // import { Observable, map } from 'rxjs';
-import { AuthService, UserLogin } from 'src/app/shared/auth.service';
+import { AuthService, User } from 'src/app/shared/auth.service';
       
 @Component({
   selector: 'app-index',
@@ -16,7 +16,7 @@ export class IndexComponent implements OnInit {
   peticiones : Peticion[] = [];
 
   // log ?: any;
-  user ?: UserLogin|any;
+  user ?: User|any;
 
   img : string[] = [];
 
