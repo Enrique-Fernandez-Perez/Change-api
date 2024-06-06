@@ -1,0 +1,159 @@
+//pruebas de busqueda
+
+while($vid < ($page*$listar)){
+    for($row=0; $row < $rows; $row++){
+        echo "<div class='row mt-3 mx-auto'>";
+        for($col=0; $col < $columnas; $col++){
+            echo "<div class='col d-flex mx-auto'>
+            <div class='m-auto d-flex'>
+            
+            <a class='link-dark link-underline-opacity-0' href='video.html'>
+            <video id='video1' width='" . $tam . "' height='" . $tam . "' loop buffered controls onmouseover='playPause(this)' onmouseout='playPause(this)' autoplay>
+                <source src='https://www.w3schools.com/html/mov_bbb.mp4' type='video/mp4'>
+                </video>
+                <div class='col d-flex m-auto'>
+                <h1>Título " . $vid . " </h1>
+                <h2>Descripción " . $vid . " ...</h2></a>
+                </div>
+                </div>
+                </div>";
+            $vid++;
+        }
+
+        echo "</div>";
+    }     
+}
+
+
+    <!-- < ?php
+        $rows=2;
+        $columnas = 5;
+
+        $vid=1;
+
+         //esto determinara la altura y la anchura que ocupara la imagen/video en su posicion, este tamoño es optiomo para un numero de columnas inferior a 6,
+        //si subes el numero de columnas a 6 o mas habra que modificar esta variable para que la imagen se vea correctamene. (recomeindo partir de 350/300 y 4/5 columnas, e ir bajar de 50 en 50, hasta un maximo de 200 con 8 columnas
+        $tam = 300;
+    ?> -->
+
+    <!-- <div id="centrar">
+    <!-- @ foreach($peticiones as $peticion) -- >
+    <div id="viewFlex">
+    < ?php echo "<div class='row mt-1 mx-auto'>";
+        for($row=0; $row < $rows; $row++){
+        for($col=0; $col < $columnas; $col++){
+                echo "<div class='col mx-auto'>
+                <a class='link-dark link-underline-opacity-0' href='video.html'>
+                <video id='video1' width='" . $tam . "' height='" . $tam . "' loop buffered controls onmouseover='playPause(this)' onmouseout='playPause(this)' autoplay>
+                    <source src='https://www.w3schools.com/html/mov_bbb.mp4' type='video/mp4'>
+                    </video>
+                    <h2>Título " . $vid . " </h2>
+                    <h5>Descripción " . $vid . " ...</h5></a>
+                    </div>";
+                $vid++;
+            }
+        }
+        echo "</div>";
+        
+        ?>
+    <!-- @ endforeach -- >
+    </div> -->
+
+
+
+// @foreach($videos as $video)
+//     $ids[] = $video->id;
+//     $src[] = $video->;
+// @endforeach
+// @csrf 
+// $ids[] ="Pepe";
+// $ids[] ="lol";
+// echo $ids[1];
+/**
+@foreach($peticiones as $peticion)
+<div id="viewFlex">
+    <span><img src="{{asset($peticion->files()->first()->file_path)}}"></span>
+    <span>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+        </tr>
+        <tr>
+            <td>{{$peticion->id}}</td>
+            <td>{{$peticion->titulo}}</td>
+        </tr>
+    </table>
+        <a href="{{route('peticiones.show', $peticion->id)}}" class="btn btn-danger">Ver detalles</a>
+    </span>        
+</div>
+@endforeach
+@csrf */
+
+
+<!-- @foreach($peticiones as $peticion)
+    <div id="viewFlex">
+        <span><img src="{{asset($peticion->files()->first()->file_path)}}"></span>
+        <span>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Titulo</th>
+            </tr>
+            <tr>
+                <td>{{$peticion->id}}</td>
+                <td>{{$peticion->titulo}}</td>
+            </tr>
+        </table>
+            <a href="{{route('peticiones.show', $peticion->id)}}" class="btn btn-danger">Ver detalles</a>
+        </span>        
+    </div>
+    @endforeach
+    @csrf -->
+
+
+<!-- 
+    <!DOCTYPE html> 
+<html> 
+<body> 
+
+<div style="text-align:center"> 
+  <button onclick="playPause()">Play/Pause</button> 
+  <button onclick="makeBig()">Big</button>
+  <button onclick="makeSmall()">Small</button>
+  <button onclick="makeNormal()">Normal</button>
+  <br><br>
+  <video id="video1" width="420" onmouseover="playPause()" onmouseout="playPause()" poster="https://www.w3schools.com/html/pic_video.jpg" buffered controls>
+    <source src="mov_bbb.mp4" type="video/mp4">
+    <source src="mov_bbb.ogg" type="video/ogg">
+    Your browser does not support HTML video.
+  </video>
+</div> 
+
+<script> 
+var myVideo = document.getElementById("video1"); 
+
+function playPause() { 
+  if (myVideo.paused) 
+    myVideo.play(); 
+  else 
+    myVideo.pause(); 
+} 
+
+function makeBig() { 
+    myVideo.width = 560; 
+} 
+
+function makeSmall() { 
+    myVideo.width = 320; 
+} 
+
+function makeNormal() { 
+    myVideo.width = 420; 
+} 
+</script> 
+
+<p>Video courtesy of <a href="https://www.bigbuckbunny.org/" target="_blank">Big Buck Bunny</a>.</p>
+
+</body> 
+</html> -->
